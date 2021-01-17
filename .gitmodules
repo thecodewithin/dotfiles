@@ -1,0 +1,21 @@
+[submodule "submodules/vim-surround"]
+	path = submodules/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "submodules/vim-commentary"]
+	path = submodules/vim-commentary
+	url = https://github.com/tpope/vim-commentary
+[submodule "submodules/vim-repeat"]
+	path = submodules/vim-repeat
+	url = https://github.com/tpope/vim-repeat
+[submodule "submodules/vim-liquid"]
+	path = submodules/vim-liquid
+	url = https://github.com/tpope/vim-liquid
+[submodule "submodules/vim-markdown"]
+	path = submodules/vim-markdown
+	url = https://github.com/tpope/vim-markdown
+[submodule "submodules/vim-jdaddy"]
+	path = submodules/vim-jdaddy
+	url = https://github.com/tpope/vim-jdaddy
+[submodule "submodules/nerdtree"]
+	path = submodules/nerdtree
+	url = https://github.com/scrooloose/nerdtree
