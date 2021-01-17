@@ -187,17 +187,17 @@ nnoremap <silent> <Leader>- :vertical resize -5<CR>
 
 " Autocommands {{{
 
-" Trim white space at the end of lines
-fun! TrimWhitespace()
-  let l:save = winsaveview()
-  keeppatterns %s/\s\+$//e
-  call winrestview(l:save)
-endfun
+" " Trim white space at the end of lines
+" fun! TrimWhitespace()
+"   let l:save = winsaveview()
+"   keeppatterns %s/\s\+$//e
+"   call winrestview(l:save)
+" endfun
 
-augroup CleanLines
-  autocmd!
-  autocmd BufWritePre * :call TrimWhitespace()
-augroup END
+" augroup CleanLines
+"   autocmd!
+"   autocmd BufWritePre * :call TrimWhitespace()
+" augroup END
 
 " Create file-marks for commonly edited file types
 augroup FileMarks
