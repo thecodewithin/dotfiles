@@ -7,7 +7,7 @@ This Vim configuration was put together using other people's files and ideas.
 #### Max Cantor's talk:
  - 'How to Do 90% of What Plugins Do (With Just Vim)'
    - https://www.youtube.com/watch?v=XA2WjJbmmoM
- - His .vmrc:
+ - his .vimrc:
    - https://github.com/changemewtf/dotfiles/blob/master/vim/.vimrc
 
 #### Cris Toomey's talk:
