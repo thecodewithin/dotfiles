@@ -1,6 +1,6 @@
 ##  My Vim configuration
 
-This vim configuration was put together using other people's files and ideas.
+This Vim configuration was put together using other people's files and ideas.
 
 ### Videos and config files
 
