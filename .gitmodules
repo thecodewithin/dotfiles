@@ -19,3 +19,7 @@
 [submodule "submodules/nerdtree"]
 	path = submodules/nerdtree
 	url = https://github.com/scrooloose/nerdtree
+[submodule "submodules/undotree"]
+	path = submodules/undotree
+	url = https://github.com/mbbill/undotree
+
