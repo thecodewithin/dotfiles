@@ -23,3 +23,6 @@
 	path = submodules/undotree
 	url = https://github.com/mbbill/undotree
 
+[submodule "submodules/ansible-vim"]
+	path = submodules/ansible-vim
+	url = https://github.com/pearofducks/ansible-vim
