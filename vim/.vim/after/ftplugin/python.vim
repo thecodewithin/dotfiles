@@ -1,7 +1,7 @@
 " https://www.youtube.com/watch?v=Gs1VDYnS-Ac
 " https://github.com/leeren/dotfiles
 
-set shiftwidth=4 tabstop=4 softtabstop=4 expandtab=4 smartindent
+set shiftwidth=4 tabstop=4 softtabstop=4 autoindent smartindent
 
 setlocal path=.,**
 
