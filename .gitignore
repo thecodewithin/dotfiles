@@ -1,2 +1,4 @@
 undodir/
 vim/.vim/.netrwhist
+nvim/undodir
+nvim/lazy-lock.json
