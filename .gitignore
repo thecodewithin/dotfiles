@@ -1,4 +1,9 @@
-undodir/
+undodir/*
 vim/.vim/.netrwhist
-nvim/undodir
+nvim/undodir/*
 nvim/lazy-lock.json
+# Generic temporary files
+*~
+.#*
+.DS_Store
+Thumbs.db

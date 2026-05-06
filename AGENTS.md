@@ -5,6 +5,8 @@
   git submodule update --init --recursive   # pull all plugin submodules
   ```
 - **Apply configuration** (GNU stow)
+  - Run `./install.sh` for a full bootstrap (initialises submodules, creates `$HOME/.config/nvim`, and stows both configs)
+  - Run `./update.sh` to refresh plugins and re‑apply stow links
   ```bash
   stow vim                     # symlinks ./vim into $HOME
   mkdir -p "$HOME/.config/nvim"   # ensure target exists
