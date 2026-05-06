@@ -13,7 +13,9 @@ A personal collection of Vim and Neovim configuration files managed with GNU sto
 ├─ install.sh          # One‑click bootstrap script (see below)
 ├─ update.sh           # Refresh plugins and re‑apply stow links
 ├─ vim/                # Vim runtime files (vimrc, plugin configs, …)
+│   └─ .undodir/.gitkeep   # placeholder to keep undo dir tracked
 ├─ nvim/               # Neovim configuration (init.lua, lazy-lock, …)
+│   └─ undodir/.gitkeep   # placeholder to keep undo dir tracked
 └─ submodules/         # Third‑party Vim plugins added as git submodules
 ```
 
