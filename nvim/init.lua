@@ -376,6 +376,11 @@ require("lazy").setup({
     },
     config = function()
       require("opencode").setup({
+        ui = {
+          icons = {
+            preset = 'text', --switch all icons to text
+          },
+        },
         -- Default configuration options
         default_global_keymaps = true,
         keymap_prefix = "<leader>o",
