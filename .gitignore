@@ -1,14 +1,14 @@
 # Keep undo directories but ignore their contents
 vim/.undodir/**
 !vim/.undodir/.gitkeep
-nvim/undodir/**
-!nvim/undodir/.gitkeep
+nvim/.config/nvim/undodir/**
+!nvim/.config/nvim/undodir/.gitkeep
 
 # Vim NetRW history
 vim/.vim/.netrwhist
 
 # Lazy‑Nvim lock file (generated)
-nvim/lazy-lock.json
+nvim/.config/nvim/lazy-lock.json
 
 # Generic temporary files
 *~

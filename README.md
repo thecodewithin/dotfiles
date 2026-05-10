@@ -1,6 +1,6 @@
 # Dotfiles Repository
 
-A personal collection of Vim and Neovim configuration files managed with GNU stow. The repository also bundles a curated set of Vim plugins as Git submodules.
+A personal collection of Vim, NeoVim and Tmux configuration files managed with GNU stow. The repository also bundles a curated set of Vim plugins as Git submodules.
 
 ---
 
@@ -8,19 +8,22 @@ A personal collection of Vim and Neovim configuration files managed with GNU sto
 
 ```
 .
-├─ .gitignore          # Ignored generated files (undo history, lazy-lock, …)
-├─ AGENTS.md           # Short OpenCode instructions (already present)
-├─ install.sh          # One‑click bootstrap script (see below)
-├─ update.sh           # Refresh plugins and re‑apply stow links
-├─ vim/                # Vim runtime files (vimrc, plugin configs, …)
+├─ .gitignore              # Ignored generated files (undo history, lazy-lock, …)
+├─ AGENTS.md               # Short OpenCode instructions (already present)
+├─ README.md               # Short collection description
+├─ install.sh              # One‑click bootstrap script (see below)
+├─ update.sh               # Refresh plugins and re‑apply stow links
+├─ vim/                    # Vim runtime files (vimrc, plugin configs, …)
 │   └─ .undodir/.gitkeep   # placeholder to keep undo dir tracked
-├─ nvim/               # Neovim configuration (init.lua, lazy-lock, …)
-│   └─ undodir/.gitkeep   # placeholder to keep undo dir tracked
-└─ submodules/         # Third‑party Vim plugins added as git submodules
+├─ nvim/                   # Neovim configuration (lives under nvim/.config/nvim)
+│   └─ undodir/.gitkeep    # placeholder to keep undo dir tracked
+├─ tmux/                   # Tmux configuration
+└─ submodules/             # Third‑party Vim plugins added as git submodules
 ```
 
 * `vim/` → symlinked into `$HOME`.
-* `nvim/` → symlinked into `$HOME/.config/nvim` (the target directory is created automatically).
+* `nvim/` → symlinked into `$HOME` (the config lives under `nvim/.config/nvim`).
+* `tmux/` → symlinked into `$HOME`.
 * All plugins live under `submodules/` and are version‑controlled via Git submodules.
 
 ---
@@ -38,10 +41,9 @@ cd "$HOME/.dotfiles"
 
 The installer will:
 1. Initialise every submodule (plugins).
-2. Create `$HOME/.config/nvim` if it does not exist.
-3. Stow the Vim config into `$HOME` and the Neovim config into `$HOME/.config/nvim`.
+2. Stow the Vim config into `$HOME`, the Neovim config into `$HOME`, and the tmux config into `$HOME`.
 
-After it finishes, your `$HOME` should contain the expected symlinks (e.g., `~/.vimrc`, `~/.config/nvim/init.lua`).
+After it finishes, your `$HOME` should contain the expected symlinks (e.g., `~/.vimrc`, `~/.vim/`, `~/.undodir`, `~/.tmux.conf`, `~/.tmux/` and `~/.config/nvim/`).
 
 ---
 
@@ -51,14 +53,14 @@ After it finishes, your `$HOME` should contain the expected symlinks (e.g., `~/.
 # 1 Initialise submodules (plugins)
 git submodule update --init --recursive
 
-# 2 Ensure the Neovim target directory exists
-mkdir -p "$HOME/.config/nvim"
-
-# 3 Stow Vim configuration (default target is $HOME)
+# 2 Stow Vim configuration
 stow vim
 
-# 4 Stow Neovim configuration into the proper target
-stow -t "$HOME/.config/nvim" nvim
+# 3 Stow NeoVim configuration
+stow nvim
+
+# 4 Stow Tmux configuration
+stow tmux
 ```
 
 ---
@@ -87,7 +89,7 @@ If you only want to refresh the submodules without pulling a new commit of the d
    ```
 2. Re‑run the installer or simply stow again:
    ```bash
-   ./install.sh   # or `stow vim && stow -t "$HOME/.config/nvim" nvim`
+   ./install.sh   # or `stow vim && stow nvim && stow tmux`
    ```
 
 The submodule will be tracked automatically and updated via `./update.sh`.
@@ -113,7 +115,7 @@ The top‑level `LICENSE` file applies to the dotfiles themselves. Each plugin s
 ## Contributing
 
 1. Fork the repository.
-2. Make your changes (e.g., edit files under `vim/` or `nvim/`, or add a new plugin submodule).
+2. Make your changes (e.g., edit files under `vim/`, `nvim/` or `tmux/`, or add a new plugin submodule).
 3. Run `./install.sh` locally to verify that everything links correctly.
 4. Commit the changes and open a Pull Request.
 
@@ -123,8 +125,8 @@ The top‑level `LICENSE` file applies to the dotfiles themselves. Each plugin s
 
 - `stow` command not found – Install GNU stow via your package manager.
 - Symlink conflicts – Remove any stray files that clash with the expected links before re‑running `install.sh`.
-- Neovim config directory missing – `install.sh` creates `$HOME/.config/nvim` automatically; you can also create it manually with `mkdir -p "$HOME/.config/nvim"`.
 
 ---
 
 Enjoy a clean, reproducible development environment!
+

@@ -33,13 +33,11 @@ git submodule foreach "git pull origin master"
 echo "Re‑applying stow for Vim…"
 stow vim
 
-NVIM_TARGET="$HOME/.config/nvim"
-if [ ! -d "$NVIM_TARGET" ]; then
-  echo "Creating Neovim config directory: $NVIM_TARGET"
-  mkdir -p "$NVIM_TARGET"
-fi
+# Re‑stow tmux configuration (defaults to $HOME)
+echo "Re‑applying stow for tmux…"
+stow tmux
 
 echo "Re‑applying stow for Neovim…"
-stow -t "$NVIM_TARGET" nvim
+stow nvim
 
 echo "✅ Update complete. All plugins are up‑to‑date and configuration symlinks refreshed."

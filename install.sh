@@ -6,10 +6,11 @@ set -euo pipefail
 # -------------------------------------------------------------------
 # This script assumes it is executed from the root of the cloned repo.
 # It performs the following actions:
-#   1) Initialize all git submodules (Vim plugins).
-#   2) Ensure the Neovim configuration target directory exists.
-#   3) Stow the Vim and Neovim configuration using GNU stow.
-#   4) Print a success message.
+#   1) Initialise all git submodules (plugins).
+#   2) Stow the Vim configuration (defaults to $HOME).
+#   3) Stow the Neovim configuration directly to $HOME (source: nvim/.config/nvim).
+#   4) Stow the tmux configuration directly to $HOME.
+#   5) Print a success message.
 # -------------------------------------------------------------------
 
 # Helper: print error and exit
@@ -27,19 +28,20 @@ done
 echo "Initializing git submodules…"
 git submodule update --init --recursive
 
-# Step 2: Create Neovim target directory if missing
-NVIM_TARGET="$HOME/.config/nvim"
-if [ ! -d "$NVIM_TARGET" ]; then
-  echo "Creating Neovim config directory: $NVIM_TARGET"
-  mkdir -p "$NVIM_TARGET"
-fi
+# Step 2: (No explicit target directory needed – stow defaults to $HOME)
+# The Neovim configuration lives under nvim/.config/nvim and will be stowed directly to $HOME.
+# (No directory creation required.)
 
 # Step 3: Stow Vim configuration (defaults to $HOME)
 echo "Stowing Vim configuration…"
 stow vim
 
-# Step 4: Stow Neovim configuration into the proper target
+# Step 4: Stow tmux configuration (defaults to $HOME)
+echo "Stowing tmux configuration…"
+stow tmux
+
+# Step 4: Stow Neovim configuration directly to $HOME
 echo "Stowing Neovim configuration…"
-stow -t "$NVIM_TARGET" nvim
+stow nvim
 
 echo "✅ Installation complete. Your Vim and Neovim configs are now active."

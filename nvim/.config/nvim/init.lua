@@ -24,9 +24,13 @@
 -- Must be set BEFORE lazy.nvim loads, so plugin keymaps inherit it correctly.
 -- If you set this after require("lazy").setup(), leader-based plugin keys break.
 -- -----------------------------------------------------------------------------
-vim.g.mapleader      = " "
-vim.g.maplocalleader = "\\"
+require("core.keymaps")
+
 vim.o.autoread = true  -- automatically reload modified files
+vim.keymap.set('n', '<c-k>', ':wincmd k<CR>')
+vim.keymap.set('n', '<c-j>', ':wincmd j<CR>')
+vim.keymap.set('n', '<c-h>', ':wincmd h<CR>')
+vim.keymap.set('n', '<c-l>', ':wincmd l<CR>')
 
 -- -----------------------------------------------------------------------------
 -- STEP 2: Source your existing settings
@@ -34,6 +38,7 @@ vim.o.autoread = true  -- automatically reload modified files
 -- -----------------------------------------------------------------------------
 -- vim.cmd("source " .. vim.fn.stdpath("config") .. "/settings.vim")
 vim.cmd("source ~/.config/nvim/settings.vim")
+vim.cmd("source ~/.config/nvim/lua/plugins/*")
 
 -- -----------------------------------------------------------------------------
 -- STEP 3: Bootstrap lazy.nvim
@@ -182,6 +187,13 @@ require("lazy").setup({
       local telescope = require("telescope")
 
       telescope.setup({
+        pickers = {
+          find_files = {
+            hidden = true,
+            -- Optional: Respect .gitignore but still show hidden files
+            no_ignore = false,
+          },
+        },
         defaults = {
           -- Use ripgrep (rg) as the grep backend — faster than system grep
           -- Install with: sudo apt install ripgrep
@@ -189,7 +201,7 @@ require("lazy").setup({
           vimgrep_arguments = {
             "rg", "--color=never", "--no-heading",
             "--with-filename", "--line-number",
-            "--column", "--smart-case",
+            "--column", "--smart-case", "--hidden",
           },
           -- Open the file preview on the right side
           layout_config = {
@@ -363,6 +375,10 @@ require("lazy").setup({
   -- Surround text objects: cs, ds, ys
   { "tpope/vim-surround" },
 
+  {
+    "christoomey/vim-tmux-navigator",
+    vim.keymap.set('n', 'C-h', ':TmuxNavigateLeft<CR>'),
+  },
   -- opencode chat interface
   {
     "sudo-tee/opencode.nvim",
