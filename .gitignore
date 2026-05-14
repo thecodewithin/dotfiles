@@ -10,8 +10,12 @@ vim/.vim/.netrwhist
 # Lazy‑Nvim lock file (generated)
 nvim/.config/nvim/lazy-lock.json
 
+# ignore runtime plugins
+tmux/.tmux/plugins/*"
+
 # Generic temporary files
 *~
 .#*
 .DS_Store
 Thumbs.db
+
