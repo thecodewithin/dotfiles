@@ -26,3 +26,6 @@
 [submodule "submodules/ansible-vim"]
 	path = submodules/ansible-vim
 	url = https://github.com/pearofducks/ansible-vim
+[submodule "tmux/.tmux/plugins/tpm"]
+	path = tmux/.tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
